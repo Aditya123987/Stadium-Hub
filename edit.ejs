@@ -1,0 +1,55 @@
+<%layout("layouts/boilerplate")%>
+   
+   
+    <div class="row">
+        <form action="/Stadiums/<%=stadium.id %>?_method=PUT" method="post" novalidate class="validated">
+        <h1 class="text-center">Update Stadium</h1>
+        <div class="col-6 offset-3">
+            <div class="mb-3">
+            <label for="name" class="form-label" >Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Stadium Name" value="<%=stadium.name%>" id="name" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="location" class="form-control" placeholder="Stadium Location" value="<%=stadium.location%>" id="location" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="mb-3">
+            <label for="capacity" class="form-label">Capacity</label>
+            <input type="text" name="capacity" class="form-control" placeholder="Stadium Capacity" value="<%=stadium.capacity%>" id="capacity" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image Url</label>
+                <input type="text" name="image" class="form-control" placeholder="URL" id="image" value="<%=stadium.image%>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" rows="3" name="description" required><%=stadium.description%></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+              </div>
+              <div class="mb-3">
+              <button class="btn btn-info">Update Stadium</button> 
+              </div>
+              <div class="mb-3">
+              <a href="/Stadiums">All Stadiums</a>
+              </div>
+        </div>
+        
+        </form>
+        
+       
+    </div>
+    

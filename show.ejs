@@ -1,0 +1,55 @@
+<%layout("layouts/boilerplate")%>
+  
+
+<div class="row mb-3">
+    <div class="col-6 mt-3">
+<div class="card">
+    <img src="<%=stadium.image%>">
+    <div class="card-body">
+      <h5 class="card-title"><%=stadium.name%></h5>
+      <h6 class="card-subtitle mb-2 text-muted">Location:<%=stadium.location%></h6>
+      <h6 class="card-subtitle mb-2">Capacity:<%=stadium.capacity%></h6>
+      <p class="card-text"><%=stadium.description%></p>
+      <a class="card-link btn btn-info" href="/Stadiums/<%=stadium.id%>/edit">Edit</a>
+      <form class="card-link d-inline" action="/Stadiums/<%=stadium.id%>?_method=DELETE" method="post">
+        <button class="btn btn-danger">Delete</button>
+    </form> 
+    </div>
+    <div class="card-footer text-muted">
+        2 days ago
+      </div>
+  </div>
+ 
+  
+</div>
+<div class="col-6 mt-3">
+  <form action="/Stadiums/<%=stadium.id%>/Reviews" method="post" class="validated" novalidate>
+    <h3>Leave a comment about your experience here.</h3>
+  <div class="mb-3">
+    <label for="Review" class="form-label">Review</label>
+    <input type="range" class="form-range" min="1" max="5" id="Review" name="rating">
+  </div>
+  <div class="form-floating mt-3">
+   
+    <textarea class="form-control" placeholder="Leave a comment here" id="body" style="height: 100px" name="body" required></textarea>
+    <label for="body">Comments</label>
+  </div>
+ <div class="mb-3 mt-3"> <button class="btn btn-success">Comment</button></div>
+  </form>
+  
+   
+    <%for(let review of stadium.reviews) {%>
+      <div class="mb-3 card">
+      <div class="card-body">
+      <h5 class="card-title">Rating:<%=review.rating%></h5>
+      <p class="card-text"><%=review.body%></p>
+      <form action="/Stadiums/<%=stadium.id%>/Reviews/<%=review.id%>?_method=DELETE" method="post">
+        <button class="btn btn-sm btn-danger">Delete</button>
+        </form>
+    </div>
+    
+  </div>
+  
+    <%}%>
+</div>
+</div>
